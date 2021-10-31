@@ -1,0 +1,56 @@
+configurations {
+    all*.exclude module: 'spring-boot-starter-logging'
+}
+
+// Defines the dependencies for this build
+dependencies {
+    // Sunlife dependency jars
+    compile(group: 'some.us.dc.utility', name: 'log', version: '0.2')
+    compile(group: 'some.us.dc.utility', name: 'dbc', version: '1.0')
+    compile(group: 'some.us.dc.mescenter', name: 'mcplugin-framework', version: '2.17.0.3-20201007.202552-1')
+            {
+                exclude module: 'camel-core'
+                exclude module: 'camel-cxf'
+                exclude module: 'camel-cxf-transport'
+                exclude module: 'camel-ejb'
+                exclude module: 'camel-jms'
+                exclude module: 'camel-spring'
+                exclude module: 'jdom'
+                exclude module: 'partner'
+                exclude module: 'spring-oxm'
+                exclude module: 'commons-codec'
+                exclude module: 'commons-collections'
+                exclude module: 'commons-io'
+                exclude module: 'cxf'
+            }
+    compile(group: 'some.us.dc.mescenter', name: 'mcplugin-common', version: '2.17.0')
+            {
+                exclude module: 'mcplugin-framework'
+                exclude module: 'partner'
+                exclude module: 'commons-io'
+            }
+            
+            }
+            
+ /******************************************************************************************************************
+ JAVA-PLUGIN:   Creates an output JAR with MANIFEST based on the classes and resources within this project
+ @Link: https://docs.gradle.org/current/userguide/java_plugin.html#sec:jar
+  ***************************************************************************************************************** */
+group = currentGroupId
+version = currentVersion
+jar {
+    manifest {
+        attributes(
+                "Member": "Enterprise Application Development",
+                "Implementation-Group": group,          
+                "Provider": "Application Development",
+                "Implementation-Title": currentArtifactId,
+                "Implementation-Version": currentVersion,
+                "Implementation-Vendor": "Sunlife",
+                "Created-By": System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
+                "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
+                "Built-Time": new Date().format('dd-MMM-yyyy HH:mm:ss')
+        )
+    }
+    baseName 'my-gateway-plugin'
+}
