@@ -34,17 +34,17 @@ public class SalesForceURLTest {
             code = connection.getResponseCode();*/
 
             // With Proxy Settings
-            /* System.setProperty("http.proxyHost", "proxy-mwg-http.ca.sunlife");
+            /* System.setProperty("http.proxyHost", "proxy url");
             System.setProperty("http.proxyPort", "8080");
-            System.setProperty("http.proxyUser", "user.qps@sunlife.com.intsb");
-            System.setProperty("http.proxyPassword", "4qps1997aj1nGNuDAVOHqo6iLAxlSTYe");*/
+            System.setProperty("http.proxyUser", "some username");
+            System.setProperty("http.proxyPassword", "somepass");*/
             URL siteURL = new URL(url);
-            /*Proxy proxy1 = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy-mwg-http.ca.sunlife", 8080));
+            /*Proxy proxy1 = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy url", 8080));
             HttpURLConnection connection1 = (HttpURLConnection) siteURL.openConnection(proxy1);
             connection1.setRequestMethod("GET");
             connection1.setConnectTimeout(3000);
-            connection1.setRequestProperty( "http.proxyUser", "user.qps@sunlife.com.intsb" );
-            connection1.setRequestProperty( "http.proxyPassword", "4qps1997aj1nGNuDAVOHqo6iLAxlSTYe" );
+            connection1.setRequestProperty( "http.proxyUser", "some user" );
+            connection1.setRequestProperty( "http.proxyPassword", "ss" );
             connection1.connect();
             code = connection1.getResponseCode();
             System.out.println(url + "\t\t Connection is using proxy with port 8080 :" + connection1.usingProxy());
@@ -56,12 +56,12 @@ public class SalesForceURLTest {
                 result = "-> Yellow <-\t" + "Code: " + code;
             }*/
 
-            Proxy proxy2 = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy-mwg-http.ca.sunlife", 8443));
+            Proxy proxy2 = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy url", 8443));
             HttpURLConnection connection2 = (HttpURLConnection) siteURL.openConnection(proxy2);
             connection2.setRequestMethod("GET");
             connection2.setConnectTimeout(3000);
-            connection2.setRequestProperty( "http.proxyUser", "user.qps@sunlife.com.intsb" );
-            connection2.setRequestProperty( "http.proxyPassword", "4qps1997aj1nGNuDAVOHqo6iLAxlSTYe" );
+            connection2.setRequestProperty( "http.proxyUser", "username" );
+            connection2.setRequestProperty( "http.proxyPassword", "some pass" );
             connection2.connect();
             code = connection2.getResponseCode();
 
